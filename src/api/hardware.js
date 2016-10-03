@@ -38,13 +38,13 @@ function update(req,res,next) {
     res.json(writeResult);
   });
 }
-// function delete(req,res,next) {
-//   Hardware.remove({ id:req.body.id }, function(err) {
-//     if(err) {
-//       return next(err);
-//     }
-//     res.json('record removed!');
-//   });
-// }
+function delete(req,res,next) {
+  Hardware.remove({ id:req.body.id }, function(err) {
+    if(err) {
+      return next(err);
+    }
+    res.json('record removed!');
+  });
+}
 
-export default {findById,create,update};
+export default {findById,create,update,delete};

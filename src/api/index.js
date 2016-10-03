@@ -1,17 +1,16 @@
 import { version } from '../../package.json';
 import { Router } from 'express';
-import facets from './facets';
-
+import hardware from './hardware.js';
 export default ({ config, db }) => {
 	let api = Router();
-
-	// mount the facets resource
-	api.use('/facets', facets({ config, db }));
-
 	// perhaps expose some API metadata at the root
 	api.get('/', (req, res) => {
 		res.json({ version });
 	});
+  api.get('/hardware/:id',hardware.findById);
+  api.put('/hardware/',hardware.create);
+  api.post('/hardware/:id',hardware.update);
+  // api.delete('/hardware/:id',hardware.delete);
 
 	return api;
 }

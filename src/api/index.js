@@ -9,10 +9,10 @@ export default ({ config, db }) => {
 	});
   api.get('/hardware/:id',hardware.findById);
   api.put('/hardware/',hardware.create);
-  api.post('/hardware/:id',hardware.update);
-  // api.post('/hardware/:id/checkout',hardware.checkout);
-  // api.post('/hardware/:id/checkin',hardware,checkin);
-  api.delete('/hardware/:id',hardware.delete);
+  api.post('/hardware/:id/name',hardware.updateName);
+  api.post('/hardware/:id/checkout',hardware.checkout);
+  api.post('/hardware/:id/checkin',hardware.checkin);
+  api.delete('/hardware/:id',hardware.remove);
 
 	return api;
 }

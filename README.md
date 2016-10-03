@@ -1,5 +1,6 @@
-Express & ES6 REST API Boilerplate
+Hack Duke Hardware Registration 
 ==================================
+Using Express & ES6 REST API Boilerplate
 
 [![bitHound Score](https://www.bithound.io/github/developit/express-es6-rest-api/badges/score.svg)](https://www.bithound.io/github/developit/express-es6-rest-api)
 
@@ -16,12 +17,6 @@ Getting Started
 ---------------
 
 ```sh
-# clone it
-git clone git@github.com:developit/express-es6-rest-api.git
-cd express-es6-rest-api
-
-# Make it your own
-rm -rf .git && git init && npm init
 
 # Install dependencies
 npm install

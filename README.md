@@ -4,8 +4,6 @@ Using Express & ES6 REST API Boilerplate
 
 [![bitHound Score](https://www.bithound.io/github/developit/express-es6-rest-api/badges/score.svg)](https://www.bithound.io/github/developit/express-es6-rest-api)
 
-This is a straightforward boilerplate for building REST APIs with ES6 and Express.
-
 - ES6 support via [babel](https://babeljs.io)
 - REST resources as middleware via [resource-router-middleware](https://github.com/developit/resource-router-middleware)
 - CORS support via [cors](https://github.com/troygoode/node-cors)
@@ -21,13 +19,28 @@ Getting Started
 # Install dependencies
 npm install
 
+# Start MongoDB
+mongod
+
 # Start development live-reload server
 PORT=8080 npm run dev
+
+# Use test database
+cd into project directory   
+mongo < mongoScript.js   
 
 # Start production server:
 PORT=8080 npm start
 ```
-
+TODO:
+-----
+1. Access control for API (OAuth?)   
+2. UI   
+3. Test: on prod server and unit test   
+4. Scanner input: scan userId, hardware barcode.   
+5. Verify design schema and API   
+6. Documentation   
+7. Deploy   
 
 License
 -------

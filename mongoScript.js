@@ -1,0 +1,48 @@
+use hackduke-hardware 
+db.hardwareschemas.remove({});
+db.userschemas.remove({});
+db.hardwareschemas.insert({
+  "id":"1",
+  "name":"hardware 1",
+  "checked_out":false,
+  "user_checkout":"",
+  "checkout_time":"",
+  "record":[]
+});
+db.hardwareschemas.insert({
+  "id":"2",
+  "name":"hardware 2",
+  "checked_out":true,
+  "user_checkout":"Amy",
+  "checkout_time":"Sat Oct 8 16.48PM EST",
+  "record":[{
+    "user_id":"Amy",
+    "checkout_time":"Sat Oct 8 16.48PM EST",
+    "checkin_time":""
+  }]
+});
+db.hardwareschemas.insert({
+  "id":"3",
+  "name":"hardware 2",
+  "checked_out":false,
+  "user_checkout":"Bob",
+  "checkout_time":"",
+  "record":[{
+    "user_id":"Bob",
+    "checkout_time":"Sat Oct 8 16.48PM EST",
+    "checkin_time":"Sat Oct 9 16.48PM EST"
+  }]
+});
+db.hardwareschemas.insert({
+  "id":"4",
+  "name":"hardware 4",
+  "checked_out":true,
+  "user_checkout":"Bill",
+  "checkout_time":"Sun Oct 9 17:19PM EST",
+  "record":[{
+    "user_id":"Bill",
+    "checkout_time":"Sun Oct 9 17:19PM EST",
+    "checkin_time":"Sun Oct 9 18:19PM EST"
+  }]
+});
+

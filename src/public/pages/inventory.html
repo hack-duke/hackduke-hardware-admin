@@ -1,10 +1,42 @@
 <md-content>
-    <md-whiteframe class="md-whiteframe-16dp" style="margin:auto"; flex-sm="60" flex-gt-sm="60" flex-gt-md="60" layout="column" layout-align="center center">
+    <md-whiteframe id="popupContainer" class="md-whiteframe-16dp" style="margin:auto;height:500px;" flex-sm="60" flex-gt-sm="60" flex-gt-md="60" layout="column" layout-align="center center">
       <md-toolbar class="md-table-toolbar md-default">
         <div class="md-toolbar-tools">
           <span>Hardware</span>
-          <md-button style="margin-right: 10px;margin-left: auto;" ng-click="loadCheckout()" ng-hide="filter">checked out</md-button>
-          <md-button style="margin-right: 10px;margin-left: auto;" ng-click="loadAll()" ng-show="filter">All records</md-button>
+          <md-menu md-position-mode="target-right target" >
+          <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+            <i class="material-icons">more_vert</i>
+          </md-button>
+          <md-menu-content width="3" >
+            
+            <md-menu-item>
+              <md-button ng-disabled="!filter" ng-click="loadAll()">
+                  <div layout="row" flex>
+                    <p flex>View All</p>
+                    <i class="material-icons">view_headline</i>
+                  </div>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-disabled="filter" ng-click="loadCheckout()">
+                  <div layout="row" flex>
+                    <p flex>View Checked Out</p>
+                    <i class="material-icons">filter_list</i>
+                  </div>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-disabled="select.length===0" ng-click="showConfirm($event)">
+                  <div layout="row" flex>
+                    <p flex>Delete</p>
+                    <i class="material-icons">delete</i>
+                  </div>
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+          <!-- <md-button style="margin-right: 10px;margin-left: auto;" ng-click="loadCheckout()" ng-hide="filter">checked out</md-button> -->
+          <!-- <md-button style="margin-right: 10px;margin-left: auto;" ng-click="loadAll()" ng-show="filter">All records</md-button> -->
         </div>
           
       </md-toolbar>

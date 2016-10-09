@@ -1,0 +1,46 @@
+<md-content>
+    <md-whiteframe class="md-whiteframe-16dp" style="margin:auto"; flex-sm="50" flex-gt-sm="50" flex-gt-md="50" layout="column" layout-align="center center">
+      <md-toolbar class="md-table-toolbar md-default">
+        <div class="md-toolbar-tools">
+          <span>Add New Hardware</span>
+        </div>
+      </md-toolbar>
+      <md-content layout-padding>
+    <form name="projectForm">
+      <div layout="row">
+        <md-input-container flex="50">
+          <label>Barcode</label>
+          <input required name="id" ng-model="hardware.id">
+          <div ng-messages="projectForm.id.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-input-container flex="50">
+          <label>Name</label>
+          <!-- <md-select name="type" ng-model="project.type" required>
+            <md-option value="app">Application</md-option>
+            <md-option value="web">Website</md-option>
+          </md-select> -->
+          <input required name="name" ng-model="hardware.name">
+          <div ng-messages="projectForm.name.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+      </div>
+      <md-input-container class="md-block">
+        <label>Description</label>
+        <input md-maxlength="30" required md-no-asterisk name="description" ng-model="hardware.description">
+        <div ng-messages="projectForm.description.$error">
+          <div ng-message="required">This is required.</div>
+          <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
+        </div>
+      </md-input-container>
+      <div style="margin-left: 82%; margin-right: 10px;">
+        <md-button ng-click="addNew()" type="submit">Submit</md-button>
+      </div>
+
+    </form>
+  </md-content>
+
+    </md-whiteframe>
+    </md-content>

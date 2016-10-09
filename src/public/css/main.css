@@ -1,0 +1,99 @@
+body {
+  background-image: url("../media/login-bg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+md-whiteframe {
+  opacity: 0.85;
+  background-color: white;
+  max-height: 100px;
+}
+
+#hackduke {
+  font-size: 70px;
+  color: white;
+  opacity: 0.95;
+}
+
+#hardware {
+  font-size: 20px;
+  color: white;
+  opacity: 0.9;
+}
+
+.dukecard-tag {
+  margin-left: 10px;
+  font-size: 7pt;
+  color:red;
+}
+
+.vertical-container{
+  height:292px;
+  width:100%;
+}
+
+#btnGroup {
+  width: 100%;
+  background-color: transparent;
+  /*opacity: 0%;*/
+}
+md-content {
+  width: 100%;
+  background-color: transparent;
+}
+
+#buttons {
+  opacity: 100%;
+}
+
+#btnCheckin {
+  background-color: rgb(235,90,209);
+  border-radius: 15px 15px 15px 15px;
+  width: 110px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+#btnCheckout {
+  border-radius: 15px 15px 15px 15px;
+  width: 110px;
+}
+#btnInv {
+  border-radius: 15px 15px 15px 15px;
+  width: 110px;
+}
+
+.md-list-item {
+  width:100%;
+}
+
+md-dialog {
+  width: 400px;
+  height: 600px;
+}
+md-dialog .info p {
+  font-size: 10.5pt;
+  margin-left: 12px;
+  margin-top: -7px;
+  /*color:grey;*/
+}
+
+.description{
+  font-size: 11pt;
+}
+
+md-list-item p {
+  margin-top: -7px;
+  font-size: 11pt;
+}
+md-list-item .payment {
+  color:grey;
+  font-weight: 3;
+}
+
+md-divider {
+  margin-top: 10px;
+  margin-bottom: 0; 
+}
+md-card-content p{
+  font-size: 10pt;
+}

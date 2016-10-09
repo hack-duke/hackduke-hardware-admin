@@ -1,4 +1,4 @@
-var app = angular.module('app',['ngRoute','ngMaterial','inventoryController']);
+var app = angular.module('app',['ngRoute','ngMaterial','md.data.table','inventoryController']);
 
 app.config(function($routeProvider) {
   $routeProvider.when('/', {

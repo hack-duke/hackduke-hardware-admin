@@ -25,7 +25,7 @@ db.hardwareschemas.insert({
   "id":"3",
   "name":"hardware 2",
   "checked_out":false,
-  "user_checkout":"Bob",
+  "user_checkout":"",
   "checkout_time":"",
   "record":[{
     "user_id":"Bob",
@@ -36,6 +36,42 @@ db.hardwareschemas.insert({
 db.hardwareschemas.insert({
   "id":"4",
   "name":"hardware 4",
+  "checked_out":true,
+  "user_checkout":"Bill",
+  "checkout_time":"Sun Oct 9 17:19PM EST",
+  "record":[{
+    "user_id":"Bill",
+    "checkout_time":"Sun Oct 9 17:19PM EST",
+    "checkin_time":"Sun Oct 9 18:19PM EST"
+  }]
+});
+db.hardwareschemas.insert({
+  "id":"5",
+  "name":"hardware 5",
+  "checked_out":true,
+  "user_checkout":"Bill",
+  "checkout_time":"Sun Oct 9 17:19PM EST",
+  "record":[{
+    "user_id":"Bill",
+    "checkout_time":"Sun Oct 9 17:19PM EST",
+    "checkin_time":"Sun Oct 9 18:19PM EST"
+  }]
+});
+db.hardwareschemas.insert({
+  "id":"6",
+  "name":"hardware 6",
+  "checked_out":true,
+  "user_checkout":"Bill",
+  "checkout_time":"Sun Oct 9 17:19PM EST",
+  "record":[{
+    "user_id":"Bill",
+    "checkout_time":"Sun Oct 9 17:19PM EST",
+    "checkin_time":"Sun Oct 9 18:19PM EST"
+  }]
+});
+db.hardwareschemas.insert({
+  "id":"7",
+  "name":"hardware 7",
   "checked_out":true,
   "user_checkout":"Bill",
   "checkout_time":"Sun Oct 9 17:19PM EST",

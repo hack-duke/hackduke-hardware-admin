@@ -28,6 +28,7 @@ app.use(morgan('dev')) // switch to 'combined' for standard output
 app.use('/', routes);
 
 app.use(express.static(__dirname + '/../node_modules')); // client-side frameworks
+app.use(express.static(__dirname + '/../bower_components'));
 app.use(express.static(__dirname + '/public')); // HTML, CSS
 
 // connect to db

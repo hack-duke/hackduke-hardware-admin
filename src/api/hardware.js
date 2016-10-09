@@ -3,11 +3,11 @@ import request from 'request';
 
 function findCheckedOut(req,res,next) {
   Hardware.find({
-    "checked_out": true
-  }).select("id name user_checkout checkout_time")
+    'checked_out': true
+  }).select('id name checked_out user_checkout checkout_time')
   .exec(function(err,hardware) {
     if (err) {
-      res.status(500).send("error finding all checked-out hardware. ");
+      res.status(500).send('error finding all checked-out hardware. ');
     } else {
       res.json(hardware);
     }
@@ -16,10 +16,10 @@ function findCheckedOut(req,res,next) {
 
 function findAll(req,res,next) {
   Hardware.find({
-  }).select("id name checked_out checkout_time user_checkout")
+  }).select('id name checked_out checkout_time user_checkout')
   .exec(function(err,hardware) {
     if(err) {
-      res.status(500).send("error finding hardware. ");
+      res.status(500).send('error finding hardware. ');
     } else {
       res.json(hardware);
     }
@@ -30,10 +30,10 @@ function findById(req,res,next) {
   var id = req.params.id;
   Hardware.findOne({ id: id }, function(err,hardware) {
     if (err) {
-      res.status(500).send("error finding hardware with id "+id+".");
+      res.status(500).send('error finding hardware with id '+id+'.');
     }
     if(hardware===null) {
-      res.status(404).send("no hardware with id "+id+" has been found");
+      res.status(404).send('no hardware with id '+id+' has been found');
     } else {
       res.json(hardware);
     }   
@@ -43,7 +43,7 @@ function create(req,res,next) {
   var newHardware = new Hardware(req.body);
   newHardware.save(function(err,event) {
     if(err) {
-      res.status(500).send("error creating hardware entry: "+err);
+      res.status(500).send('error creating hardware entry: '+err);
     } else {
       res.json(event);
     }
@@ -52,7 +52,7 @@ function create(req,res,next) {
 function remove(req,res,next) {
   Hardware.remove({ id:req.params.id }, function(err) {
     if(err) {
-      res.status(500).send("Could not remove record. Error: "+err);
+      res.status(500).send('Could not remove record. Error: '+err);
     }
     res.json('record removed!');
   });
@@ -77,18 +77,18 @@ function checkout(req,res,next) {
   var id = req.params.id;
   var checkoutTime = req.body.checkout_time;
   var userId = req.body.userId;
-  if(typeof userId==="undefined") {
-    res.status(400).send("must include userId in request.");
+  if(typeof userId==='undefined') {
+    res.status(400).send('must include userId in request.');
     return;
   }
-  if(typeof checkoutTime==="undefined") {
-    res.status(400).send("must include checkout time in request.");
+  if(typeof checkoutTime==='undefined') {
+    res.status(400).send('must include checkout time in request.');
     return;
   }
   
   Hardware.findOne({ id: id }, function(err,hardware) {
     if (err) {
-      res.status(400).send("error finding hardware id: "+id+" "+err);
+      res.status(400).send('error finding hardware id: '+id+' '+err);
       return;
     }
     if(hardware.checked_out) {
@@ -107,7 +107,7 @@ function checkout(req,res,next) {
       if(err) {
         return next(err);
       }
-      res.json("checkout record appended.");
+      res.json('checkout record appended.');
     })
   });
 }
@@ -115,28 +115,28 @@ function checkout(req,res,next) {
 function checkin(req,res,next) {
   var id = req.params.id;
   var checkinTime = req.body.checkin_time;
-  if(typeof checkinTime==="undefined") {
-    res.status(400).send("must include check in time.");
+  if(typeof checkinTime==='undefined') {
+    res.status(400).send('must include check in time.');
     return;
   }
   Hardware.findOne({ id: id }, function(err,hardware) {
     if(err) {
-      res.status(400).send("error finding hardware with id "+id+" "+err);
+      res.status(400).send('error finding hardware with id '+id+' '+err);
       return;
     }
     if(!hardware.checked_out) {
-      res.status(400).send("hardware is already checked in.");
+      res.status(400).send('hardware is already checked in.');
       return;
     }
     hardware.record[hardware.record.length-1].checkin_time = checkinTime;
     hardware.checked_out = false;
-    hardware.user_checkout = "";
-    hardware.checkout_time = "";
+    hardware.user_checkout = '';
+    hardware.checkout_time = '';
     hardware.save(function(err) {
       if(err) {
-        res.status(500).send("Unable to update hardware record. Contact Administrator");
+        res.status(500).send('Unable to update hardware record. Contact Administrator');
       }
-      res.json("checkin record appended.")
+      res.json('checkin record appended.')
     });
   });
 }

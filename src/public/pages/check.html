@@ -1,5 +1,5 @@
 <md-content>
-    <md-whiteframe id="toast-container" class="md-whiteframe-16dp" style="margin:auto"; flex-sm="50" flex-gt-sm="50" flex-gt-md="50" layout="column" layout-align="center center">
+    <md-whiteframe id="toast-container" class="md-whiteframe-16dp" style="margin-left:auto;margin-right:auto; margin-top: 20px;" flex-sm="50" flex-gt-sm="50" flex-gt-md="50" layout="column" layout-align="center center">
       <md-toolbar class="md-table-toolbar md-default">
         <div class="md-toolbar-tools">
           <span>Hardware Check In/Check Out</span>
@@ -10,7 +10,7 @@
           <div layout="row" sytle="margin-top:-25px;">
             <md-input-container flex="50">
               <label><i class="material-icons">search</i> Enter or scan barcode</label>
-              <input name="id" ng-model="hardware.id">
+              <input name="id" ng-model="id">
               
             </md-input-container>
             <md-button md-no-ink ng-click="findHardware()" class="md-primary" style="height:20px;margin-top: 15px; margin-bottom: auto;">Search</md-button>
@@ -20,7 +20,7 @@
           <div layout="row">
             <md-input-container flex="50">
               <label>Barcode</label>
-              <input required name="id" ng-model="hardware.id" ng-disabled="!editEnabled">
+              <input required name="id" ng-model="hardware.id" ng-disabled="true">
               <div ng-messages="projectForm.id.$error">
                 <div ng-message="required">This is required.</div>
               </div>
@@ -46,12 +46,32 @@
             </div>
           </md-input-container>
           <div style="margin-left: 82%;">
-            <md-button md-no-ink class="md-primary" ng-hide="editEnabled" ng-click="allowEdit()" type="submit">Edit</md-button>
+            <md-button md-no-ink class="md-primary" ng-hide="editEnabled" ng-click="toggleEdit()" type="submit">Edit</md-button>
           </div>
-          <div style="margin-left: 78%;">
-          <md-button md-no-ink class="md-primary" style="margin-left:auto; margin-right:10px;" ng-show="editEnabled" ng-click="update()" type="submit">Save</md-button>
+          <div style="margin-left: 82%;">
+          <md-button md-no-ink class="md-primary" ng-show="editEnabled" ng-click="update()" type="submit">Save</md-button>
           </div>
         </form>
+
+        <md-table-container>
+          <table md-table multiple>
+            <thead md-head md-order="query.order" md-on-reorder="getData" md-progress="promise">
+              <tr md-row>
+                <th md-column>Checked Out</th>
+                <th md-column>User ID</th>
+                <th md-column>Check In</th>
+              </tr>
+            </thead>
+            <tbody md-body>
+              <tr md-row ng-repeat="i in hardware.record">
+                <td md-cell>{{i.checkout_time}}</td>
+                <td md-cell>{{i.user_id}}</td>
+                <td md-cell>{{i.checkin_time}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </md-table-container>
+        <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="10" md-on-paginate="getData(query.page,query.limit)" md-page-select></md-table-pagination>
       </md-content>
 
   </md-whiteframe>

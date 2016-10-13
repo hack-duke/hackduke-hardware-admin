@@ -17,7 +17,7 @@ export default ({ config, db }) => {
   // create hardware item with empty record
   api.put('/hardware/',hardware.create);
   // update hardware name for given ID
-  api.post('/hardware/:id/name',hardware.updateName);
+  api.post('/hardware/:id',hardware.updateForId);
   // update checkout status for hardware
   api.post('/hardware/:id/checkout',hardware.checkout);
   // update checkin status for hardware

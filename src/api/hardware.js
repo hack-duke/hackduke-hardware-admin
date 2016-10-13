@@ -57,17 +57,18 @@ function remove(req,res,next) {
     res.json('record removed!');
   });
 }
-function updateName(req,res,next) {
-  var newName = req.body.name;
+function updateForId(req,res,next) {
   Hardware.update({ id: req.params.id }, {
-    name: newName,
+    name: req.body.name,
+    description: req.body.description
   }, {
     upsert: false,
     multi: false
   },
   function(err,writeResult) {
     if(err) {
-      return next(err);
+      res.status(500).send('error updating hardware id '+req.params.id);
+      return;
     } 
     res.json(writeResult);
   });
@@ -142,4 +143,4 @@ function checkin(req,res,next) {
 }
 
 
-export default {findCheckedOut, findAll,findById,create,remove,updateName,checkout,checkin};
+export default {findCheckedOut, findAll,findById,create,remove,updateForId,checkout,checkin};

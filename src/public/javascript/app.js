@@ -10,5 +10,8 @@ app.config(function($routeProvider) {
   }).when('/add',{
     templateUrl: '../pages/new.html',
     controller: 'addNewController'
-  });
+  }).when('/user',{
+    templateUrl:'../pages/user.html',
+    controller: 'userRecordController'
+  })
 });

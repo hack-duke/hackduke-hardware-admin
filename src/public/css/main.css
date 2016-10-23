@@ -38,6 +38,14 @@ md-whiteframe {
   background-color: transparent;
   /*opacity: 0%;*/
 }
+
+#btnGroup .md-button {
+  border-radius: 15px 15px 15px 15px;
+  width: 110px;
+  margin-left: 25px;
+  /*margin-right: 25px;*/
+}
+
 md-content {
   width: 100%;
   background-color: transparent;
@@ -49,18 +57,22 @@ md-content {
 
 #btnCheckin {
   background-color: rgb(235,90,209);
-  border-radius: 15px 15px 15px 15px;
-  width: 110px;
-  margin-left: 25px;
-  margin-right: 25px;
+ /* border-radius: 15px 15px 15px 15px;
+  width: 110px;*/
+/*  margin-left: 25px;
+  margin-right: 25px;*/
 }
-#btnCheckout {
+/*#btnCheckout {
   border-radius: 15px 15px 15px 15px;
   width: 110px;
 }
 #btnInv {
   border-radius: 15px 15px 15px 15px;
   width: 110px;
+}*/
+#btnUser {
+  /*border-radius: 15px 15px 15px 15px;*/
+  background-color:  red;
 }
 
 .md-list-item {

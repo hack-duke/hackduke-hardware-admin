@@ -36,14 +36,12 @@ md-whiteframe {
 #btnGroup {
   width: 100%;
   background-color: transparent;
-  /*opacity: 0%;*/
 }
 
 #btnGroup .md-button {
   border-radius: 15px 15px 15px 15px;
   width: 110px;
   margin-left: 25px;
-  /*margin-right: 25px;*/
 }
 
 md-content {
@@ -57,21 +55,9 @@ md-content {
 
 #btnCheckin {
   background-color: rgb(235,90,209);
- /* border-radius: 15px 15px 15px 15px;
-  width: 110px;*/
-/*  margin-left: 25px;
-  margin-right: 25px;*/
 }
-/*#btnCheckout {
-  border-radius: 15px 15px 15px 15px;
-  width: 110px;
-}
-#btnInv {
-  border-radius: 15px 15px 15px 15px;
-  width: 110px;
-}*/
+
 #btnUser {
-  /*border-radius: 15px 15px 15px 15px;*/
   background-color:  red;
 }
 
@@ -85,12 +71,6 @@ md-dialog {
 }
 md-dialog .md-button {
   width: 175px;
-}
-/*md-dialog .info p {
-  font-size: 10.5pt;
-  margin-left: 12px;
-  margin-top: -7px;*/
-  /*color:grey;*/
 }
 
 .description{

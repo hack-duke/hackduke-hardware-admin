@@ -1,4 +1,4 @@
-Hack Duke Hardware Registration 
+Hack Duke Hardware Inventory 
 ==================================
 Using Express & ES6 REST API Boilerplate
 
@@ -33,7 +33,7 @@ PORT=8080 npm start
 TODO:
 -----
 <ul>
-<li>Query by user id</li>
+<li><del>Query by user id</del></li>
 <li>Basic authentication in http header   </li>
 <li><del>UI   </del></li>
 <li>Test: on prod server and unit test   </li>

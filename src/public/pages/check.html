@@ -11,12 +11,18 @@
             <md-input-container flex="50">
               <label><i class="material-icons">search</i> Enter or scan barcode</label>
               <input name="id" ng-model="id">
-              
             </md-input-container>
             <md-button md-no-ink ng-click="findHardware()" class="md-primary" style="height:20px;margin-top: 15px; margin-bottom: auto;">Search</md-button>
           </div>
         </form>
+
         <form name="projectForm" id="form" ng-show="loaded">
+          <div style="margin-left: 85%;">
+            <md-button md-no-ink class="md-primary" style="width:20px;" ng-click="toggleEdit()" ng-hide="editEnabled"  type="submit"><i style="padding-top:5px;" class="material-icons">edit</i></md-button>
+          </div>
+          <div style="margin-left: 84%;">
+            <md-button md-no-ink class="md-primary" ng-show="editEnabled" ng-click="update()" type="submit">Save</md-button>
+          </div>
           <div layout="row">
             <md-input-container flex="50">
               <label>Barcode</label>
@@ -45,12 +51,12 @@
               <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
             </div>
           </md-input-container>
-          <div style="margin-left: 82%;">
-            <md-button md-no-ink class="md-primary" ng-hide="editEnabled" ng-click="toggleEdit()" type="submit">Edit</md-button>
-          </div>
-          <div style="margin-left: 82%;">
-          <md-button md-no-ink class="md-primary" ng-show="editEnabled" ng-click="update()" type="submit">Save</md-button>
-          </div>
+
+          <div layout="row" style="margin-left:63%;">
+              <md-button md-no-ink class="md-primary" ng-click="showCheckinPrompt($event)" ng-disabled="checkedin">Check in</md-button>
+              <md-button class="md-warn" ng-click="showCheckoutPrompt($event)" ng-disabled="checkedout">Check out</md-button>
+            </div>
+
         </form>
 
         <md-table-container>
@@ -71,7 +77,7 @@
             </tbody>
           </table>
         </md-table-container>
-        <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="10" md-on-paginate="getData(query.page,query.limit)" md-page-select></md-table-pagination>
+<!--         <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="10" md-on-paginate="getData(query.page,query.limit)" md-page-select></md-table-pagination> -->
       </md-content>
 
   </md-whiteframe>

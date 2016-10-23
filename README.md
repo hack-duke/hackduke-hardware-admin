@@ -32,13 +32,16 @@ PORT=8080 npm start
 ```
 TODO:
 -----
-1. Access control for API (OAuth?)   
-<del>2. UI   </del>
-3. Test: on prod server and unit test   
-4. Scanner input: scan userId, hardware barcode.   
-<del>5. Verify design schema and API   </del>
-6. Documentation   
-7. Deploy   
+<ul>
+<li>Query by user id</li>
+<li>Basic authentication in http header   </li>
+<li><del>UI   </del></li>
+<li>Test: on prod server and unit test   </li>
+<li>Scanner input: scan userId, hardware barcode.   </li>
+<li><del>Verify design schema and API   </del></li>
+<li>Documentation   </li>
+<li>Deploy   </li>
+</ul>
 
 License
 -------

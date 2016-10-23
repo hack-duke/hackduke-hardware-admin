@@ -1,6 +1,20 @@
 import Hardware from '../models/HardwareSchema.js';
 import request from 'request';
 
+
+function recordForUserId(req,res,next) {
+  Hardware.find({
+    'user_checkout':req.params.uid
+  }).select('id name checked_out checkout_time user_checkout')
+  .exec(function(err,hardware) {
+    if(err) {
+      res.status(500).send('error finding record by user id');
+    } else {
+      res.json(hardware);
+    }
+  })
+}
+
 function findCheckedOut(req,res,next) {
   Hardware.find({
     'checked_out': true
@@ -143,4 +157,4 @@ function checkin(req,res,next) {
 }
 
 
-export default {findCheckedOut, findAll,findById,create,remove,updateForId,checkout,checkin};
+export default {recordForUserId,findCheckedOut,findAll,findById,create,remove,updateForId,checkout,checkin};

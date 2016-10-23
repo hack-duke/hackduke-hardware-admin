@@ -27,6 +27,7 @@ checkController.controller('checkController',['$scope','$http','$mdDialog',funct
       $scope.loaded = true;
       $scope.editEnabled = false;
     }, function error(err) {
+      $scope.loaded = false;
       alert('error updating data.');
     });
   };

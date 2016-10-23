@@ -59,7 +59,10 @@
 
         </form>
 
-        <md-table-container>
+        <md-table-container ng-show="loaded">
+          <div class="md-toolbar-tools">
+            <span>Record</span>
+          </div>
           <table md-table multiple>
             <thead md-head md-order="query.order" md-on-reorder="getData" md-progress="promise">
               <tr md-row>

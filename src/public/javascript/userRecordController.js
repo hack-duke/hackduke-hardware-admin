@@ -19,7 +19,7 @@ userRecordController.controller('userRecordController',['$scope','$http',functio
       $scope.record = res.data;
       $scope.loaded = true;
       $scope.hasData = res.data.length>0;
-    },function error(err) {
+    },function error() {
       alert('error loading record for user');
     });
   };

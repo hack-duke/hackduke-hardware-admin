@@ -31,6 +31,12 @@
   "author": "Jason Miller <jason@developit.ca>",
   "license": "MIT",
   "dependencies": {
+    "angular": "^1.5.5",
+    "angular-animate": "^1.5.5",
+    "angular-aria": "^1.5.5",
+    "angular-material": "git+https://github.com/angular/bower-material.git#master",
+    "angular-messages": "^1.5.5",
+    "babel-eslint": "^7.1.0",
     "body-parser": "^1.13.3",
     "bootstrap": "^3.3.7",
     "compression": "^1.5.2",
@@ -39,12 +45,7 @@
     "mongoose": "^4.6.0",
     "morgan": "^1.7.0",
     "pug": "^2.0.0-beta6",
-    "resource-router-middleware": "^0.5.1",
-    "angular": "^1.5.5",
-    "angular-animate": "^1.5.5",
-    "angular-aria": "^1.5.5",
-    "angular-messages": "^1.5.5",
-    "angular-material": "git+https://github.com/angular/bower-material.git#master"
+    "resource-router-middleware": "^0.5.1"
   },
   "peerDependencies": {
     "angular": "@>=1.3 <1.6",

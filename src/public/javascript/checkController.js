@@ -67,7 +67,7 @@ checkController.controller('checkController',['$scope','$http','$mdDialog','$mdT
         $scope.showToast('Hardware deleted.');
         $scope.loaded = false;
       }, function error(err) {
-        alert('Error deleting hardware.');
+        alert('Error deleting hardware.'+err);
       });
   }
 
@@ -82,7 +82,7 @@ checkController.controller('checkController',['$scope','$http','$mdDialog','$mdT
       $scope.editEnabled = false;
     }, function error(err) {
       $scope.loaded = false;
-      alert('error updating data.');
+      alert('error updating data.'+err);
     });
   };
 
@@ -99,7 +99,7 @@ checkController.controller('checkController',['$scope','$http','$mdDialog','$mdT
       $scope.checkedout = $scope.hardware.checked_out;
       $scope.checkedin = !$scope.checkedout;
     },function error(err) {
-      alert('error loading hardware');
+      alert('error loading hardware.'+err);
     });
   };
 
@@ -129,7 +129,7 @@ checkController.controller('checkController',['$scope','$http','$mdDialog','$mdT
         $scope.findHardware();
         $scope.showToast('Hardware checked out!');
       }, function error(err) {
-        alert('Error checking out hardware');
+        alert('Error checking out hardware.'+err);
       });
       
     }, function cancel() {
@@ -152,7 +152,7 @@ checkController.controller('checkController',['$scope','$http','$mdDialog','$mdT
       $scope.findHardware();
       $scope.showToast('Hardware checked in!');
     }, function error(err) {
-      alert('checkin failed');
+      alert('checkin failed.'+err);
     });
   };
 

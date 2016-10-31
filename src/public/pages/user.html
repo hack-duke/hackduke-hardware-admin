@@ -16,7 +16,7 @@
           </div>
         </form>
 
-        <md-table-container ng-show="loaded">
+        <md-table-container style="width:100%;" ng-show="loaded">
           <div class="md-toolbar-tools">
             <span>Record</span>
           </div>
@@ -35,7 +35,7 @@
                 <td md-cell>{{i.id}}</td>
                 <td md-cell>{{i.name}}</td>
                 <td md-cell>{{i.checked_out}}</td>
-                <td md-cell>{{i.checkout_time}}</td>
+                <td md-cell>{{i.checkout_time | date:'medium'}}</td>
                 <td md-cell>{{i.user_checkout}}</td>
               </tr>
             </tbody>

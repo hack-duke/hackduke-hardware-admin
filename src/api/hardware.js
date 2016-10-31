@@ -1,7 +1,6 @@
 import Hardware from '../models/HardwareSchema.js';
-import request from 'request';
 
-function groupByHardwareSet(req,res,next) {
+function groupByHardwareSet(req,res) {
   Hardware.aggregate([
       {
         $project:{in_stock:{$cond:['$checked_out',0,1]},
@@ -20,10 +19,10 @@ function groupByHardwareSet(req,res,next) {
       } else {
         res.json(result);
       }
-    })
+    });
 }
 
-function recordForUserId(req,res,next) {
+function recordForUserId(req,res) {
   Hardware.find({
     'user_checkout':req.params.uid
   }).select('id name checked_out checkout_time user_checkout')
@@ -33,10 +32,10 @@ function recordForUserId(req,res,next) {
     } else {
       res.json(hardware);
     }
-  })
+  });
 }
 
-function findCheckedOut(req,res,next) {
+function findCheckedOut(req,res) {
   Hardware.find({
     'checked_out': true
   }).select('id name checked_out user_checkout checkout_time hardware_set')
@@ -49,7 +48,7 @@ function findCheckedOut(req,res,next) {
   });
 }
 
-function findAll(req,res,next) {
+function findAll(req,res) {
   Hardware.find({
   }).select('id name checked_out checkout_time user_checkout hardware_set')
   .exec(function(err,hardware) {
@@ -61,7 +60,7 @@ function findAll(req,res,next) {
   });
 }
 
-function findById(req,res,next) {
+function findById(req,res) {
   var id = req.params.id;
   Hardware.findOne({ id: id }, function(err,hardware) {
     if (err) {
@@ -74,7 +73,7 @@ function findById(req,res,next) {
     }   
   });
 }
-function create(req,res,next) {
+function create(req,res) {
   var newHardware = new Hardware(req.body);
   newHardware.save(function(err,event) {
     if(err) {
@@ -84,7 +83,7 @@ function create(req,res,next) {
     }
   });
 }
-function remove(req,res,next) {
+function remove(req,res) {
   Hardware.remove({ id:req.params.id }, function(err) {
     if(err) {
       res.status(500).send('Could not remove record. Error: '+err);
@@ -92,7 +91,7 @@ function remove(req,res,next) {
     res.json('record removed!');
   });
 }
-function updateForId(req,res,next) {
+function updateForId(req,res) {
   Hardware.update({ id: req.params.id }, {
     name: req.body.name,
     description: req.body.description,
@@ -110,7 +109,7 @@ function updateForId(req,res,next) {
   });
 }
 
-function checkout(req,res,next) {
+function checkout(req,res) {
   var id = req.params.id;
   var checkoutTime = req.body.checkout_time;
   var userId = req.body.userId;
@@ -142,14 +141,15 @@ function checkout(req,res,next) {
     });
     hardware.save(function(err) {
       if(err) {
-        return next(err);
+        res.status(500).send('save failed.');
+      }else {
+        res.json('checkout record appended.');
       }
-      res.json('checkout record appended.');
-    })
+    });
   });
 }
 
-function checkin(req,res,next) {
+function checkin(req,res) {
   var id = req.params.id;
   var checkinTime = req.body.checkin_time;
   if(typeof checkinTime==='undefined') {

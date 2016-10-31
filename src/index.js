@@ -39,7 +39,7 @@ initializeDb( db => {
 
 	// api router
 
-	app.use('/api', api({ config, db }));
+	app.use('/api', api({ db }));
 
 	app.server.listen(process.env.PORT || config.port);
 

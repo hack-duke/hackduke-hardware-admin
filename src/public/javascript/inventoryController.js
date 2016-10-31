@@ -27,7 +27,7 @@ inventoryController.controller('inventoryController',['$scope','$http','$mdDialo
       $scope.filter = false;
       $scope.filterBySet = false;
     },function error(err) {
-      alert('error loading data.');
+      alert('error loading data.'+err);
     });
   };
   $scope.bySet = function() {
@@ -38,7 +38,7 @@ inventoryController.controller('inventoryController',['$scope','$http','$mdDialo
       $scope.allHardwareSets = res.data;
       $scope.filterBySet = true;
     },function error(err) {
-      alert('error loading data.');
+      alert('error loading data.'+err);
     })
   }
   $scope.loadCheckout = function() {
@@ -52,7 +52,7 @@ inventoryController.controller('inventoryController',['$scope','$http','$mdDialo
       $scope.filter = true;
       $scope.filterBySet = false;
     },function error(err) {
-      alert('error loading data.');
+      alert('error loading data.'+err);
     });
   };
   $scope.showConfirm = function(ev) {
@@ -74,9 +74,9 @@ inventoryController.controller('inventoryController',['$scope','$http','$mdDialo
       $http({
         method: 'DELETE',
         url:'/api/hardware/'+hardware.id
-      }).then(function success(res){},
+      }).then(function success(){},
       function error(err) {
-        alert('Error deleting hardware.');
+        alert('Error deleting hardware.'+err);
       });
     }
     $scope.select=[];

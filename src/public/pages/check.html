@@ -73,9 +73,9 @@
             </thead>
             <tbody md-body>
               <tr md-row ng-repeat="i in hardware.record">
-                <td md-cell>{{i.checkout_time}}</td>
+                <td md-cell>{{i.checkout_time | date:'medium'}}</td>
                 <td md-cell>{{i.user_id}}</td>
-                <td md-cell>{{i.checkin_time}}</td>
+                <td md-cell>{{i.checkin_time | date:'medium'}}</td>
               </tr>
             </tbody>
           </table>

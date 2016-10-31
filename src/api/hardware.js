@@ -30,7 +30,7 @@ function findCheckedOut(req,res,next) {
 
 function findAll(req,res,next) {
   Hardware.find({
-  }).select('id name checked_out checkout_time user_checkout')
+  }).select('id name checked_out checkout_time user_checkout hardware_set')
   .exec(function(err,hardware) {
     if(err) {
       res.status(500).send('error finding hardware. ');

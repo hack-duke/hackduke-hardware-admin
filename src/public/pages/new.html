@@ -35,6 +35,14 @@
           <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
         </div>
       </md-input-container>
+      <md-input-container class="md-block">
+        <label>Hardware Set</label>
+        <input md-maxlength="30" required md-no-asterisk name="Hardware Set" ng-model="hardware.hardware_set" ng-disabled="submitted">
+        <div ng-messages="projectForm.description.$error">
+          <div ng-message="required">This is required.</div>
+          <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
+        </div>
+      </md-input-container>
       <div style="margin-left: 82%;">
         <md-button md-no-ink class="md-primary" ng-hide="submitted" ng-click="addNew()" type="submit">Submit</md-button>
       </div>

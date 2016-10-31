@@ -7,7 +7,8 @@ db.hardwareschemas.insert({
   "checked_out":false,
   "user_checkout":"",
   "checkout_time":"",
-  "record":[]
+  "record":[],
+  "hardware_set":"set1"
 });
 db.hardwareschemas.insert({
   "id":"2",
@@ -19,7 +20,8 @@ db.hardwareschemas.insert({
     "user_id":"Amy",
     "checkout_time":"Sat Oct 8 16.48PM EST",
     "checkin_time":""
-  }]
+  }],
+  "hardware_set":"set1"
 });
 db.hardwareschemas.insert({
   "id":"3",
@@ -31,7 +33,8 @@ db.hardwareschemas.insert({
     "user_id":"Bob",
     "checkout_time":"Sat Oct 8 16.48PM EST",
     "checkin_time":"Sat Oct 9 16.48PM EST"
-  }]
+  }],
+  "hardware_set":"set2"
 });
 db.hardwareschemas.insert({
   "id":"4",
@@ -43,7 +46,8 @@ db.hardwareschemas.insert({
     "user_id":"Bill",
     "checkout_time":"Sun Oct 9 17:19PM EST",
     "checkin_time":"Sun Oct 9 18:19PM EST"
-  }]
+  }],
+  "hardware_set":"set2"
 });
 db.hardwareschemas.insert({
   "id":"5",
@@ -55,7 +59,8 @@ db.hardwareschemas.insert({
     "user_id":"Bill",
     "checkout_time":"Sun Oct 9 17:19PM EST",
     "checkin_time":"Sun Oct 9 18:19PM EST"
-  }]
+  }],
+  "hardware_set":"set3"
 });
 db.hardwareschemas.insert({
   "id":"6",
@@ -67,7 +72,8 @@ db.hardwareschemas.insert({
     "user_id":"Bill",
     "checkout_time":"Sun Oct 9 17:19PM EST",
     "checkin_time":"Sun Oct 9 18:19PM EST"
-  }]
+  }],
+  "hardware_set":"set3"
 });
 db.hardwareschemas.insert({
   "id":"7",
@@ -79,6 +85,7 @@ db.hardwareschemas.insert({
     "user_id":"Bill",
     "checkout_time":"Sun Oct 9 17:19PM EST",
     "checkin_time":"Sun Oct 9 18:19PM EST"
-  }]
+  }],
+  "hardware_set":"set3"
 });
 

@@ -13,6 +13,7 @@ let hardwareSchema = new mongoose.Schema({
             required: false,
             default: [] 
           },
+  hardware_set:{type: String, required: true, default: ""},
   description: { type: String, required:false, default:"" }
 });
 export default mongoose.model('HardwareSchema',hardwareSchema);

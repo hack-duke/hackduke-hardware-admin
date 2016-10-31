@@ -10,16 +10,38 @@ md-whiteframe {
   /*margin-top: px;*/
 }
 
+#hackduke-row {
+  height:70px; 
+  margin-top: 30px; 
+  margin-left:auto; 
+  margin-right:auto;
+}
+
+#hardware-row {
+  height:10px; 
+  margin-left:auto; 
+  margin-right:auto; 
+  margin-top:5px;
+
+}
+
 #hackduke {
   font-size: 70px;
   color: white;
   opacity: 0.95;
+  margin-left: auto;
+  margin-right: auto;
+  /*-ms-transform: translate(-50%,-50%); /* IE 9 */
+  -webkit-transform: translate(0%,-10%); /* Chrome, Safari, Opera */
 }
 
 #hardware {
   font-size: 20px;
   color: white;
   opacity: 0.9;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transform: translate(0%,-10%); /* Chrome, Safari, Opera */
 }
 
 .dukecard-tag {

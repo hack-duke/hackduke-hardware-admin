@@ -10,6 +10,7 @@ import routes from './routes';
 import config from './config.json';
 import mongoose from 'mongoose';
 import path from 'path';
+import basicAuth from 'basic-auth';
 
 let app = express();
 app.server = http.createServer(app);
@@ -19,13 +20,34 @@ app.use(cors({
 	exposedHeaders: config.corsHeaders
 }));
 
+var auth = function (req, res, next) {
+  function unauthorized(res) {
+    res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+    return res.sendStatus(401);
+  };
+
+  var user = basicAuth(req);
+
+  if (!user || !user.name || !user.pass) {
+    return unauthorized(res);
+  };
+
+  if (user.name === 'foo' && user.pass === 'bar') {
+    return next();
+  } else {
+    return unauthorized(res);
+  };
+};
+
+app.use('/', auth, routes);
+
 app.use(bodyParser.json({
 	limit : config.bodyLimit
 }));
 
 app.use(morgan('dev')) // switch to 'combined' for standard output
 
-app.use('/', routes);
+
 
 app.use(express.static(__dirname + '/../node_modules')); // client-side frameworks
 app.use(express.static(__dirname + '/../bower_components'));

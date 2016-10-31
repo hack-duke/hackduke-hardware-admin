@@ -4,6 +4,9 @@ inventoryController.controller('inventoryController',['$scope','$http','$mdDialo
   $scope.hardware=[];
   $scope.allHardware=[];
   $scope.filter=false;
+  $scope.filterBySet = false;
+  $scope.hardwareSets=[];
+  $scope.allHardwareSets=[];
   $scope.query = {
     order:'id',
     limit: 10,
@@ -12,19 +15,32 @@ inventoryController.controller('inventoryController',['$scope','$http','$mdDialo
   $scope.getData = function(page, limit) {
     $scope.hardware = $scope.allHardware.slice((page-1)*limit,Math.min(page*limit,$scope.allHardware.length));
   };
+  $scope.getDataBySet = function(page, limit) {
+    $scope.hardwareSets = $scope.allHardwareSets.slice((page-1)*limit,Math.min(page*limit,$scope.allHardwareSets.length));
+  }
   $scope.loadAll = function() {
     $http({
       method:'GET',
       url:'/api/hardware'
     }).then(function success(res) {
       $scope.allHardware = res.data;
-      console.log(res);
       $scope.filter = false;
+      $scope.filterBySet = false;
     },function error(err) {
       alert('error loading data.');
-      console.log('err');
     });
   };
+  $scope.bySet = function() {
+    $http({
+      method:'GET',
+      url:'/api/hardware/byset'
+    }).then(function success(res) {
+      $scope.allHardwareSets = res.data;
+      $scope.filterBySet = true;
+    },function error(err) {
+      alert('error loading data.');
+    })
+  }
   $scope.loadCheckout = function() {
     $http({
       method:'GET',
@@ -34,9 +50,9 @@ inventoryController.controller('inventoryController',['$scope','$http','$mdDialo
       // $scope.total = res.data.length;
       console.log(res);
       $scope.filter = true;
+      $scope.filterBySet = false;
     },function error(err) {
       alert('error loading data.');
-      console.log('err');
     });
   };
   $scope.showConfirm = function(ev) {

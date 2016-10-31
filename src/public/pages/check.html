@@ -18,7 +18,7 @@
 
         <form name="projectForm" id="form" ng-show="loaded">
           <div style="margin-left: 85%;">
-            <md-button md-no-ink class="md-primary" style="width:20px;" ng-click="toggleEdit()" ng-hide="editEnabled"  type="submit"><i style="padding-top:5px;" class="material-icons">edit</i></md-button>
+            <md-button md-no-ink class="md-primary" ng-click="toggleEdit()" ng-hide="editEnabled"  type="submit">Edit</md-button>
           </div>
           <div style="margin-left: 84%;">
             <md-button md-no-ink class="md-primary" ng-show="editEnabled" ng-click="update()" type="submit">Save</md-button>
@@ -52,7 +52,7 @@
             </div>
           </md-input-container>
 
-          <div layout="row" style="margin-left:63%;">
+          <div layout="row" style="margin-left:70%;">
               <md-button md-no-ink class="md-primary" ng-click="showCheckinPrompt($event)" ng-disabled="checkedin">Check in</md-button>
               <md-button class="md-warn" ng-click="showCheckoutPrompt($event)" ng-disabled="checkedout">Check out</md-button>
             </div>

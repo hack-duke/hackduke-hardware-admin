@@ -11,7 +11,7 @@ export default ({ config, db }) => {
   
   api.get('/hardware/',hardware.findAll);
   api.get('/hardware/checkedout',hardware.findCheckedOut);
-
+  api.get('/hardware/byset',hardware.groupByHardwareSet);
   // query hardware by user id
   api.get('/user/:uid',hardware.recordForUserId);
   // find all info for one hardware by hardwareID

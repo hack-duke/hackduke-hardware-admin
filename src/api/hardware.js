@@ -1,6 +1,27 @@
 import Hardware from '../models/HardwareSchema.js';
 import request from 'request';
 
+function groupByHardwareSet(req,res,next) {
+  Hardware.aggregate([
+      {
+        $project:{in_stock:{$cond:['$checked_out',0,1]},
+                  hardware_set: '$hardware_set'}
+      },
+      {
+        $group: {
+          _id:'$hardware_set',
+          total:{$sum: 1},
+          in_stock:{$sum: '$in_stock'}
+        }
+      }
+    ], function(err, result) {
+      if(err) {
+        res.status(500).send('error grouping hardware by hardware set.');
+      } else {
+        res.json(result);
+      }
+    })
+}
 
 function recordForUserId(req,res,next) {
   Hardware.find({
@@ -18,7 +39,7 @@ function recordForUserId(req,res,next) {
 function findCheckedOut(req,res,next) {
   Hardware.find({
     'checked_out': true
-  }).select('id name checked_out user_checkout checkout_time')
+  }).select('id name checked_out user_checkout checkout_time hardware_set')
   .exec(function(err,hardware) {
     if (err) {
       res.status(500).send('error finding all checked-out hardware. ');
@@ -157,4 +178,4 @@ function checkin(req,res,next) {
 }
 
 
-export default {recordForUserId,findCheckedOut,findAll,findById,create,remove,updateForId,checkout,checkin};
+export default {groupByHardwareSet,recordForUserId,findCheckedOut,findAll,findById,create,remove,updateForId,checkout,checkin};

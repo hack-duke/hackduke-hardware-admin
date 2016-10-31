@@ -1,11 +1,39 @@
 var checkController = angular.module('checkController',[]);
-checkController.controller('checkController',['$scope','$http','$mdDialog',function($scope,$http,$mdDialog) {
+checkController.controller('checkController',['$scope','$http','$mdDialog','$mdToast',function($scope,$http,$mdDialog,$mdToast) {
   $scope.id = null;
   $scope.loaded = false;
   $scope.editEnabled = false;
   $scope.hardware = null
   $scope.checkedout = false;
   $scope.checkedin = false;
+
+  var last = {
+      bottom: false,
+      top: true,
+      left: false,
+      right: true
+    };
+
+  $scope.toastPosition = angular.extend({},last);
+
+  $scope.getToastPosition = function() {
+
+    return Object.keys($scope.toastPosition)
+      .filter(function(pos) { return $scope.toastPosition[pos]; })
+      .join(' ');
+  };
+
+  $scope.showToast = function(content) {
+    var pinTo = $scope.getToastPosition();
+    var el = angular.element(document.getElementById("toast-container"));
+    $mdToast.show(
+      $mdToast.simple()
+        .textContent(content)
+        .parent(el)
+        .position(pinTo )
+        .hideDelay(1000)
+    );
+  };
 
   $scope.query = {
     order:'checkout_time',
@@ -17,12 +45,26 @@ checkController.controller('checkController',['$scope','$http','$mdDialog',funct
     $scope.editEnabled = !$scope.editEnabled;
   };
 
+  $scope.showConfirm = function(ev) {
+    // Appending dialog to document.body to cover sidenav in docs app
+    var confirm = $mdDialog.confirm()
+          .title('Delete Hardware')
+          .textContent('Are you sure to delete the hardware?')
+          .targetEvent(ev)
+          .ok('Delete')
+          .cancel('Cancel');
+
+    $mdDialog.show(confirm).then(function() {
+      $scope.delete();
+    }, function() {});
+  };
+
   $scope.delete = function() {
     $http({
         method: 'DELETE',
         url:'/api/hardware/'+$scope.hardware.id
       }).then(function success(res){
-        alert('deleted');
+        $scope.showToast('Hardware deleted.');
         $scope.loaded = false;
       }, function error(err) {
         alert('Error deleting hardware.');
@@ -35,7 +77,7 @@ checkController.controller('checkController',['$scope','$http','$mdDialog',funct
       url:'/api/hardware/'+$scope.hardware.id,
       data: $scope.hardware
     }).then(function success(res) {
-      console.log('success update');
+      $scope.showToast('Changes saved.');
       $scope.loaded = true;
       $scope.editEnabled = false;
     }, function error(err) {
@@ -85,7 +127,7 @@ checkController.controller('checkController',['$scope','$http','$mdDialog',funct
         $scope.checkedout = true;
         $scope.checkedin = false;
         $scope.findHardware();
-        alert("checked out successfully");
+        $scope.showToast('Hardware checked out!');
       }, function error(err) {
         alert('Error checking out hardware');
       });
@@ -108,7 +150,7 @@ checkController.controller('checkController',['$scope','$http','$mdDialog',funct
       $scope.checkedout = false;
       $scope.checkedin = true;
       $scope.findHardware();
-      alert('Hardware checkedin');
+      $scope.showToast('Hardware checked in!');
     }, function error(err) {
       alert('checkin failed');
     });

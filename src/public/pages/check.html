@@ -20,7 +20,7 @@
           <div layout="row" style="margin-left: 70%;">
             <md-button md-no-ink class="md-primary" ng-click="toggleEdit()" ng-hide="editEnabled"  type="submit">Edit</md-button>
             <md-button md-no-ink class="md-primary" ng-show="editEnabled" ng-click="update()" type="submit">Save</md-button>
-            <md-button md-no-ink class="md-warn" ng-click="delete()" ng-disabled="editEnabled"  type="submit">Delete</md-button>
+            <md-button md-no-ink class="md-warn" ng-click="showConfirm($event)" ng-disabled="editEnabled"  type="submit">Delete</md-button>
           </div>
           <div layout="row">
             <md-input-container flex="50">
@@ -44,9 +44,17 @@
           </div>
           <md-input-container class="md-block">
             <label>Description</label>
-            <input md-maxlength="30" required md-no-asterisk name="description" ng-model="hardware.description" ng-disabled="!editEnabled">
+            <input md-maxlength="30" md-no-asterisk name="description" ng-model="hardware.description" ng-disabled="!editEnabled">
             <div ng-messages="projectForm.description.$error">
-              <div ng-message="required">This is required.</div>
+              <!-- <div ng-message="required">This is required.</div> -->
+              <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>Hardware Set</label>
+            <input md-maxlength="30" md-no-asterisk name="hardware_set" ng-model="hardware.hardware_set" ng-disabled="!editEnabled">
+            <div ng-messages="projectForm.hardware_set.$error">
+              <!-- <div ng-message="required">This is required.</div> -->
               <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
             </div>
           </md-input-container>

@@ -29,16 +29,16 @@
       </div>
       <md-input-container class="md-block">
         <label>Description</label>
-        <input md-maxlength="30" required md-no-asterisk name="description" ng-model="hardware.description" ng-disabled="submitted">
+        <input md-maxlength="30" md-no-asterisk name="description" ng-model="hardware.description" ng-disabled="submitted">
         <div ng-messages="projectForm.description.$error">
-          <div ng-message="required">This is required.</div>
+          <!-- <div ng-message="required">This is required.</div> -->
           <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
         </div>
       </md-input-container>
       <md-input-container class="md-block">
         <label>Hardware Set</label>
         <input md-maxlength="30" required md-no-asterisk name="Hardware Set" ng-model="hardware.hardware_set" ng-disabled="submitted">
-        <div ng-messages="projectForm.description.$error">
+        <div ng-messages="projectForm.hardware_set.$error">
           <div ng-message="required">This is required.</div>
           <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
         </div>

@@ -95,7 +95,8 @@ function remove(req,res,next) {
 function updateForId(req,res,next) {
   Hardware.update({ id: req.params.id }, {
     name: req.body.name,
-    description: req.body.description
+    description: req.body.description,
+    hardware_set: req.body.hardware_set
   }, {
     upsert: false,
     multi: false

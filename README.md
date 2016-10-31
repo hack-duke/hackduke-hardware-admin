@@ -36,7 +36,7 @@ TODO:
 -----
 <ul>
 <li><del>Query by user id</del></li>
-<li>Basic authentication in http header   </li>
+<li><del>Basic authentication   </del></li>
 <li><del>UI   </del></li>
 <li>Test: on prod server and unit test   </li>
 <li>Scanner input: scan userId, hardware barcode.   </li>

@@ -17,6 +17,18 @@ checkController.controller('checkController',['$scope','$http','$mdDialog',funct
     $scope.editEnabled = !$scope.editEnabled;
   };
 
+  $scope.delete = function() {
+    $http({
+        method: 'DELETE',
+        url:'/api/hardware/'+$scope.hardware.id
+      }).then(function success(res){
+        alert('deleted');
+        $scope.loaded = false;
+      }, function error(err) {
+        alert('Error deleting hardware.');
+      });
+  }
+
   $scope.update = function() {
     $http({
       method:'POST',

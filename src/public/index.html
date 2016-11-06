@@ -24,22 +24,22 @@
   </head>
 
   <body ng-app="app" layout="column">
-  <md-content flex" layout="column">
+  <md-content flex layout="column">
   <div id="hackduke-row" layout="row" layout-margin ng-cloak>
     <h1 id="hackduke" layout="column" layout-align="center center"> HACK DUKE </h1>
   </div>
   <div id="hardware-row" layout="row" layout-margin ng-cloak>
     <p id="hardware" layout="column" layout-align="center center">Hardware Inventory</p>
   </div>
-  <div layout="row" style="margin-left:auto; margin-right:auto; margin-top:10px;" ng-cloak>
-    <md-content id="btnGroup">
-      <section id="buttons" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+  <div layout="row" style="margin-left:auto; margin-right:auto; margin-top:10px;" layout-padding ng-cloak>
+    <!-- <md-content flex id="btnGroup"> -->
+    <section id="btnGroup" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
       <md-button href="/#/add" id="btnCheckout" class="md-raised">Add New</md-button>
       <md-button href="/#/check" id="btnCheckin" class="md-raised md-primary">Checkin/out</md-button>
       <md-button href="/#/" id="btnInv" class="md-raised md-warn">Inventory</md-button>
       <md-button href="/#/user" id="btnUser" class="md-raised md-warn">Users</md-button>
     </section>
-    </md-content>
+    <!-- </md-content> -->
   </div>
 
   <div layout="row" layout-padding ng-cloak>

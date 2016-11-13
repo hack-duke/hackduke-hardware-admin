@@ -11,16 +11,16 @@ md-whiteframe {
 }
 
 #hackduke-row {
-  height:50px; 
-  margin-top: 60px; 
-  margin-left:auto; 
+  height:50px;
+  margin-top: 60px;
+  margin-left:auto;
   margin-right:auto;
 }
 
 #hardware-row {
-  height:8px; 
-  margin-left:auto; 
-  margin-right:auto; 
+  height:8px;
+  margin-left:auto;
+  margin-right:auto;
   /*margin-top:0px;*/
 }
 
@@ -63,8 +63,8 @@ md-whiteframe {
 
 #btnGroup .md-button {
   border-radius: 15px 15px 15px 15px;
-  width: 110px;
-  margin-left: 25px;
+  width: 120px;
+  /*margin-left: 25px;*/
 }
 
 md-content {
@@ -72,12 +72,12 @@ md-content {
   background-color: transparent;
 }
 
-#btnCheckin {
+#btnInv {
   background-color: rgb(235,90,209);
 }
 
 #btnUser {
-  background-color:  red;
+  /*background-color:  red;*/
 }
 
 .md-list-item {
@@ -107,8 +107,21 @@ md-list-item .payment {
 
 md-divider {
   margin-top: 10px;
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 md-card-content p{
   font-size: 10pt;
 }
+.hint {
+    /* Position the hint */
+    position: absolute;
+    left: 25px;
+    right: auto;
+    bottom: -5px;
+    /* Copy styles from ng-messages */
+    font-size: 15px;
+    line-height: 14px;
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+    /* Set our own color */
+    color: grey;
+  }

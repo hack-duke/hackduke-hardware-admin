@@ -2,14 +2,15 @@
     <md-whiteframe id="toast-container" class="md-whiteframe-16dp" style="margin-left:auto;margin-right:auto;" flex-sm="50" flex-gt-sm="50" flex-gt-md="50" layout="column" layout-align="center center">
       <md-toolbar class="md-table-toolbar md-default">
         <div class="md-toolbar-tools">
-          <span>User Profile</span>
+          <span>My Hardware</span>
         </div>
+        <div class="hint" ng-if="!showHints">Enter your email to find hardware you checked out!</div>
       </md-toolbar>
       <md-content layout-padding>
-        <form>
+        <form class="md-inline-form">
           <div layout="row" sytle="margin-top:-25px;">
-            <md-input-container flex="50">
-              <label><i class="material-icons">search</i> UserID</label>
+            <md-input-container flex="50" class="md-block">
+              <label><i class="material-icons">search</i>Your email</label>
               <input name="id" ng-model="uid">
             </md-input-container>
             <md-button md-no-ink ng-click="findByUserId()" class="md-primary" style="height:20px;margin-top: 15px; margin-bottom: auto;">Search</md-button>
@@ -39,10 +40,10 @@
                 <td md-cell>{{i.user_checkout}}</td>
               </tr>
             </tbody>
-            
+
           </table>
           <p style="margin-left:24px; font-size: 14px; color: grey;" ng-hide="hasData">No data available.</p>
-        </md-table-container>     
+        </md-table-container>
       </md-content>
 
   </md-whiteframe>
